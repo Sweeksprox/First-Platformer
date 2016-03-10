@@ -86,7 +86,18 @@ public class Controller : MonoBehaviour {
 			}
 		}
 	}
-
+	
+	float Titanic(bool iceberg) {
+		bool floats;
+		if (iceberg == true) {
+			floats = false;
+		}
+		else {
+			floats = true;
+		}
+		return floats;
+	}
+	
 	void VerticalCollisions(ref Vector3 velocity) {
 		float directionY = Mathf.Sign (velocity.y);
 		float rayLength = Mathf.Abs (velocity.y) + skinWidth;
