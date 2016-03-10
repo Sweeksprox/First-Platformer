@@ -200,7 +200,8 @@ public class Controller : MonoBehaviour {
 
 		public bool goingUp;
 		public bool goingDown;
-		public float slopeAngle, slopeAngleOld;
+		public float slopeAngle;
+		public float slopeAngleOld;
 		public Vector3 velocityOld;
 
 		public void Reset() {
