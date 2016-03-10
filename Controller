@@ -216,7 +216,7 @@ public class Controller : MonoBehaviour {
 		public Vector3 velocityOld;
 
 		public void Reset() {
-			above = false
+			above = false;
 			below = false;
 			left = false;
 			right = false;
