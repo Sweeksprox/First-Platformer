@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(Controller2D))]
+[RequireComponent (typeof(Controller))]
 public class Player : MonoBehaviour {
 
 	public float moveSpeed;
@@ -16,12 +16,12 @@ public class Player : MonoBehaviour {
 	Vector2 velocity;
 	float smoothVelX;
 
-	Controller2D controller;
+	Controller controller;
 
 	bool facingLeft;
 
 	void Start () {
-		controller = GetComponent<Controller2D> ();
+		controller = GetComponent<Controller> ();
 
 		gravity = (-2 * jumpHeight) / Mathf.Pow (jumpTime, 2);
 		jumpVel = Mathf.Abs (gravity) * jumpTime;
