@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 
 	Controller controller;
 
+	//for later use to determine facing for object interaction
 	bool facingLeft;
 
 	void Start () {
