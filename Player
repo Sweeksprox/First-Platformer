@@ -22,7 +22,8 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		controller = GetComponent<Controller> ();
-
+		
+		//set gravity as a function of height/time, easier to tweak and parameters are less abstract
 		gravity = (-2 * jumpHeight) / Mathf.Pow (jumpTime, 2);
 		jumpVel = Mathf.Abs (gravity) * jumpTime;
 	}
@@ -39,6 +40,8 @@ public class Player : MonoBehaviour {
 		}
 
 		float targetVelX = horizontalInput * moveSpeed;
+		
+		//smooth out the horizontal acceleration/decelleration, less jerky and jumpy movement
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelX, ref smoothVelX, (controller.collisions.below) ? accelGround : accelAir);
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime);
