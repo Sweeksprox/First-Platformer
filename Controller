@@ -88,13 +88,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	bool Titanic(bool iceberg) {
-		bool floats;
-		if (iceberg == true) {
-			floats = false;
-		}
-		else {
-			floats = true;
-		}
+		bool floats = false;
 		return floats;
 	}
 
