@@ -113,6 +113,7 @@ public class Controller : MonoBehaviour {
 					collisions.left = directionX == -1;
 					//right equals bool of directionX == 1
 					collisions.right = directionX == 1;
+					collisions.hitNormal = hit.normal;
 				}
 			}
 		}
@@ -157,6 +158,7 @@ public class Controller : MonoBehaviour {
 				collisions.below = directionY == -1;
 				//above equals bool of directionY == 1
 				collisions.above = directionY == 1;
+				collisions.hitNormal = hit.normal;
 			}
 		}
 
@@ -179,6 +181,7 @@ public class Controller : MonoBehaviour {
 					velocity.x = (hit.distance - skinWidth) * directionX;
 					//assign new slope angle
 					collisions.slopeAngle = slopeAngle;
+					collisions.hitNormal = hit.normal;
 				}
 			}
 		}
@@ -232,6 +235,7 @@ public class Controller : MonoBehaviour {
 						collisions.slopeAngle = slopeAngle;
 						collisions.goingDown = true;
 						collisions.below = true;
+						collisions.hitNormal = hit.normal;
 					}
 				}
 			}
@@ -287,6 +291,7 @@ public class Controller : MonoBehaviour {
 		public float slopeAngle;
 		public float slopeAngleOld;
 		public Vector3 velocityOld;
+		public Vector3 hitNormal;
 
 		//reset all collision info
 		public void Reset() {
