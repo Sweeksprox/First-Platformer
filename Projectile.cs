@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour {
 			velocity.x += Mathf.Sign(velocity.x) * friction;
 		}
 		else if (controller.collisions.left || controller.collisions.right) {
+			velocity.y += Mathf.Sign(velocity.y) * friction;
 			velocity.x *= Mathf.Sign(velocity.x) * controller.collisions.hitNormal.x * bounceCoefficient;
 		}
 		velocity.y += gravity * Time.deltaTime;
