@@ -3,48 +3,67 @@ using System.Collections;
 
 [RequireComponent (typeof (BoxCollider2D))]
 public class Controller : MonoBehaviour {
-
+	
+	//assign the layer which to collide with
 	public LayerMask collisionMask;
 
+	//add a thin skin to make the hit box slightly smaller than our object
 	const float skinWidth = .015f;
+	//number of raycasts for left right up down
 	public int horRayCount = 4;
 	public int verRayCount = 4;
 
+	//the max angles for slope interactions, don't want to go up vertical walls
 	float maxClimbAngle = 80;
 	float maxDescendAngle = 80;
 
+	//space the rays, calculated from object width/length over ray count
 	float horizontalRaySpacing;
 	float verticalRaySpacing;
 
+	//boxcollider component of game object
 	BoxCollider2D collider;
+	//identifier for struct for top left/right, bottom left/right for casting geometry
 	RaycastOrigins raycastOrigins;
+	//identifier for struct for collisions
 	public CollisionInfo collisions;
 
 	void Start() {
+		//get game objects boxcollider component
 		collider = GetComponent<BoxCollider2D> ();
+		//self explanatory
 		CalculateRaySpacing ();
 	}
 
 	public void Move(Vector3 velocity) {
+		//update ray casting based on position
 		UpdateRaycastOrigins ();
+		//reset collision info
 		collisions.Reset ();
+		//hold ref to old velocity
 		collisions.velocityOld = velocity;
 
 		if (velocity.y < 0) {
+			//if falling/going down, check if on a slope
 			DescendSlope(ref velocity);
 		}
 		if (velocity.x != 0) {
+			//if moving left/right, check for walls
 			HorizontalCollisions (ref velocity);
 		}
 		if (velocity.y != 0) {
+			//if jumping/falling and not on a slope, check for ceiling/floors
 			VerticalCollisions (ref velocity);
 		}
 
+		//translate game object
 		transform.Translate (velocity.x, velocity.y, 0);
 	}
 
 	void HorizontalCollisions(ref Vector3 velocity) {
+		//get the sign on our horizontal velocity, -1 for left, +1 for right
 		float directionX = Mathf.Sign (velocity.x);
+		//raycast based on our velocity, compensate for skin width
 		float rayLength = Mathf.Abs (velocity.x) + skinWidth;
 
 		for (int i = 0; i < horRayCount; i ++) {
