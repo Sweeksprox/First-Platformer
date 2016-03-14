@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{0C6CCAB5-D4CD-DEB1-ABFA-E9382DC70766}") = "BearCaveReal", "Assembly-CSharp.csproj", "{B0B206AD-AC91-7104-0959-D0A9A36AA4DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0B206AD-AC91-7104-0959-D0A9A36AA4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B206AD-AC91-7104-0959-D0A9A36AA4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B206AD-AC91-7104-0959-D0A9A36AA4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B206AD-AC91-7104-0959-D0A9A36AA4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
