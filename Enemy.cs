@@ -30,10 +30,7 @@ public class Enemy : MonoBehaviour {
 		
 		//further implementation incoming
 		/*
-		info = GetComponent<EnemyInfo> ();
-		info.health = health;
-		info.rage = rage;
-		info.strength = strength;
+		info = new EnemyInfo(health, strength, rage);
 		*/
 		
 		gravity = (-2 * jumpHeight) / Mathf.Pow (jumpTime, 2);
