@@ -17,7 +17,11 @@ public class Enemy : MonoBehaviour {
 	float smoothVelX;
 
 	Controller controller;
+	
 	EnemyInfo info;
+	public float health;
+	public float rage;
+	public float strength;
 	
 	Public GameObject player;
 	
@@ -26,9 +30,10 @@ public class Enemy : MonoBehaviour {
 		
 		//further implementation incoming
 		/*
-		enemy = GetComponent<EnemyInfo> ();
-		enemy.health = health;
-		enemy.rage = rage;
+		info = GetComponent<EnemyInfo> ();
+		info.health = health;
+		info.rage = rage;
+		info.strength = strength;
 		*/
 		
 		gravity = (-2 * jumpHeight) / Mathf.Pow (jumpTime, 2);
